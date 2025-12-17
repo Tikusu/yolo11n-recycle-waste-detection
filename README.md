@@ -7,7 +7,7 @@
 ## 📌 Abstract
 
 This repository contains the official implementation of the research project: **Implementation of a Transfer Learning-Based YOLO11n Model for Recyclable Waste Detection**.
-We utilize the YOLO11n architecture with transfer learning to detect **Recyclable and Organic Waste** in **Real World Environment**. This project aims to **improve automated recyclable waste detection** by implementing a **YOLO11n model with transfer learning and evaluating layer-freezing strategies** to achieve an optimal balance between detection accuracy and computational efficiency.
+We utilize the YOLO11n architectur`e with transfer learning to detect **Recyclable and Organic Waste** in **Real World Environment**. This project aims to **improve automated recyclable waste detection** by implementing a **YOLO11n model with transfer learning and evaluating layer-freezing strategies** to achieve an optimal balance between detection accuracy and computational efficiency.
 
 ## 🏗️ Model Architecture
 
@@ -19,7 +19,7 @@ We employ **YOLO11n (Nano)** due to its balance between inference speed and accu
 
 ## 📂 Dataset
 
-The dataset used for training is **Recycle Trash Computer Vision Dataset**.
+This project uses the publicly available **Recycle Trash Computer Vision Dataset** dataset.
 
 - **Source:** [**Recycle Trash Computer Vision Dataset**](https://universe.roboflow.com/serba-serbi-labelling/recycle-trash-tlwso/dataset/3)
 - **Classes:** `metal`, `plastic`, `paper`, `cardboard`, `glass`, `organic`
@@ -28,7 +28,24 @@ The dataset used for training is **Recycle Trash Computer Vision Dataset**.
   - Val: 247 images
   - Test: 245 images
 
-> **Note:** The dataset is not included in this repo due to size. You can download it here: [**Recycle Trash Computer Vision Dataset**](https://universe.roboflow.com/serba-serbi-labelling/recycle-trash-tlwso/dataset/3).
+> **Note:** The dataset is not hosted in this repository. You can download it from the source above or this driect link: https://drive.google.com/uc?export=download&id=1vzL5B7pgcb0xirGkoW7Uf0swyAgvuANn
+
+## ⚙️ Training Scenarios
+
+This project applies the Transfer Learning approach to the YOLO11n architecture to overcome dataset limitations and accelerate model convergence. The experiment is designed to evaluate the impact of _layer freezing_ on the model's feature extraction capabilities for recyclable waste objects. The scenarios are:
+
+- Scenario 1 is **_Full Backbone Freezing_**, where the first 10 layers (backbone) of the YOLO11 architecture were frozen,
+- Scenario 2 is **_Partial Backbone Freezing_**, where the first-half (first 5 layers) of the YOLO11 backbone were frozen, and
+- Scenario 3 is **_Full Transfer Learning_**, where the whole backbone of YOLO11 were left unfrozen.
+
+## 🏆 Performance Results
+
+The model was trained for **100** epochs. Below are the evaluation metrics on the test set:
+| Scenario | Precision (P) | Recall (R) | mAP50 | mAP50-95 |
+| :--- | :---: | :---: | :---: | :---: |
+| Full Backbone Freezing | | | | |
+| Partial Backbone Freezing | | | | |
+| Full Transfer Learning | | | | |
 
 ## ⚙️ Installation
 
