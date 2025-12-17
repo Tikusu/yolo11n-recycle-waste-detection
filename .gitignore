@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments
+venv/
+env/
+.env
+
+# YOLO / Ultralytics
+runs/
+wandb/
+*.pt
+*.onnx
+
+# Datasets
+data/raw/
+data/processed/
+*.jpg
+*.png
+*.mp4
+
+# IDEs
+.vscode/
+.idea/
