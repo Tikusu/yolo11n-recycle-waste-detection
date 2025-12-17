@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ["cardboard", "glass", "metal", "organic", "paper", "plastic"]
+
+roboflow:
+  workspace: serba-serbi-labelling
+  project: recycle-trash-tlwso
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/serba-serbi-labelling/recycle-trash-tlwso/dataset/3
