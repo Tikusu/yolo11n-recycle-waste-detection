@@ -1,0 +1,16 @@
+# Core YOLO & Deep Learning
+ultralytics>=8.3.239       # Includes YOLO11n
+torch>=2.9.0             # Deep learning framework
+torchvision>=0.24.0      # Image operations for PyTorch
+
+# Data Processing & Visualization
+opencv-python            # Image manipulation (cv2)
+matplotlib               # Plotting graphs/results
+pandas                   # Handling CSV/tabular data (if used)
+numpy                    # Array operations
+Pillow                   # Image loading
+
+# Optional Utilities (Keep only if you use them)
+tqdm                     # Progress bars
+pyyaml                   # YAML config parsing
+jupyter                  # If users need to run notebooks
