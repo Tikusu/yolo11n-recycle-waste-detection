@@ -1,3 +1,5 @@
+# The sataset is in YOLOv11 format
+
 train: ../train/images
 val: ../valid/images
 test: ../test/images
