@@ -9,5 +9,5 @@ matplotlib               # Plotting graphs/results
 pandas                   # Handling CSV/tabular data (if used)
 numpy                    # Array operations
 
-# Optional Utilities (Keep only if you use them)
-jupyter                  # If users need to run notebooks
+# Optional Utilities
+jupyter                  # If you need to run notebooks
