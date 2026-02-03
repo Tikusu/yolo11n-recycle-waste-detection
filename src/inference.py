@@ -4,19 +4,15 @@ import sys
 from ultralytics import YOLO
 from PIL import Image
 
-def run_inference(model_path, source, output_dir, conf_threshold):
+def run_inference(model_path, source, output, conf_threshold):
     """
     Loads a YOLO model and runs inference on a source (image, video, or directory).
     Saves the results with bounding boxes to the output directory.
     """
     
-    # 1. Validation: Check if model exists
     if not os.path.exists(model_path):
         print(f"Error: Model not found at {model_path}")
         sys.exit(1)
-
-    # 2. Create output directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
 
     print(f"🔄 Loading model from: {model_path}...")
     try:
@@ -28,21 +24,16 @@ def run_inference(model_path, source, output_dir, conf_threshold):
     print(f"🚀 Running inference on: {source}")
     print(f"⚙️ Confidence Threshold: {conf_threshold}")
 
-    # 3. Run Prediction
-    # save=True lets YOLO handle drawing boxes and saving images automatically.
-    # project/name arguments organize the output cleanly.
     results = model.predict(
         source=source,
         conf=conf_threshold,
         save=True,
-        project=output_dir,  # Base output folder
-        name="predict",      # Subfolder name (results will be in output_dir/predict/)
-        exist_ok=True,       # Overwrite folder if it exists (prevents predict2, predict3...)
+        project=None,
+        name=output,
         verbose=True
     )
 
-    # 4. Feedback
-    save_path = os.path.join(output_dir, "predict")
+    save_path = os.path.join("runs/detect", output)
     print("-" * 50)
     print(f"✅ Inference complete!")
     print(f"📂 Results saved to: {os.path.abspath(save_path)}")
@@ -54,9 +45,9 @@ if __name__ == "__main__":
     
     parser.add_argument(
         "--model", 
-        type=str, 
-        required=True, 
-        help="Path to the trained .pt model file (e.g., models/best.pt)"
+        type=str,
+        default="models/backbone-partial-freeze/best.pt",
+        help="Path to the trained .pt model file (e.g., models/best.pt  default: models/backbone-partial-freeze/best.pt)"
     )
     
     parser.add_argument(
@@ -69,8 +60,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output", 
         type=str, 
-        default="runs/inference", 
-        help="Directory to save results (default: runs/inference)"
+        default="predict", 
+        help="Folder to save results (default: predict)"
     )
     
     parser.add_argument(
