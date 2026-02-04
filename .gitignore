@@ -18,9 +18,6 @@ wandb/
 # Datasets
 data/raw/
 data/processed/
-*.jpg
-*.png
-*.mp4
 
 # IDEs
 .vscode/
